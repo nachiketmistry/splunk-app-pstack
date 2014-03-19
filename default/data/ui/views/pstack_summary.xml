@@ -1,0 +1,75 @@
+<form stylesheet="pstack_summary.css" script="pstack_summary.js">
+  <label>pStack Summary</label>
+  <description>
+  The app ships with sample pstack data stored under sample_data directory. To give this app a spin using the sample data enter absolute path as $SPLUNK_HOME/etc/apps/pstack/sample_data/apps-8809.*.out where $SPLUNK_HOME is the path where Splunk is installed.
+  </description>
+  <searchTemplate>|parsepstacks $pstackpath$ separator=$separator$ fileorderindex=$fileorderindex$</searchTemplate>
+  <fieldset autoRun="false"> 
+    <input type="text" token="pstackpath" searchWhenChanged="true" >
+      <label>Enter absolute path to pstack folder/files</label>
+    </input>
+    <input type="text" token="separator" searchWhenChanged="true" >
+      <default>.</default>
+      <label>Separator (default '.')</label>
+    </input>
+    <input type="text" token="fileorderindex" searchWhenChanged="true" value="1">
+      <label>File index (default 1)</label>
+      <default>1</default>
+    </input>
+    <input type="text" token="threadid" searchWhenChanged="true" />
+  </fieldset>
+  <row>
+    <chart>
+      <title>Thread activity</title>
+      <searchPostProcess>stats dc(threadid) as threads by fileorder | sort  num(fileorder) num(threads)</searchPostProcess>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.axisLabelsY.majorUnit">1</option>
+    </chart>
+  </row>
+  <row>
+    <chart id="master">
+      <title >Frame activity by thread</title>
+      <searchPostProcess> | stats max(frameno) as frames by threadid, fileorder |  xyseries fileorder, threadid, frames | sort num(threadid) num(fileorder) num(frames)</searchPostProcess>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">zero</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.axisLabelsY.majorUnit">1</option>
+    </chart>
+  </row>
+  <row>
+    <table id="detail">
+      <title>Thread $threadid|s$ $pstackpath|s$ separator=$separator$ fileorderindex=$fileorderindex$ threadid=$threadid$ activity</title>
+      <searchString>
+| rawpstack $pstackpath|s$ separator=$separator$ fileorderindex=$fileorderindex$ threadid=$threadid$ reverse=true
+| table fileorder, stack
+| sort num(fileorder)</searchString>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">cell</option>
+      <option name="count">50</option>
+    </table>
+  </row>
+</form>

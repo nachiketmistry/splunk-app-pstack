@@ -1,0 +1,13 @@
+p.description{
+    padding: 10px 5px;
+}
+
+div#field1 input {
+    width:450px;
+}
+div#field4 {
+    display:none;
+}
+div#detail table td {
+	white-space: pre;
+}

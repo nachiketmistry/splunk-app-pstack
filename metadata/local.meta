@@ -1,7 +1,16 @@
 [app/ui]
-version = 6.0.2
-modtime = 1394605789.213414000
+version = 20140201
+modtime = 1391670554.109949000
 
 [app/launcher]
-version = 6.0.2
-modtime = 1394605789.214549000
+version = 20140201
+modtime = 1391670554.112990000
+
+[views/pstack_summary]
+owner = admin
+version = 20140201
+modtime = 1394218194.221681000
+
+[views/flashchart]
+version = 20140201
+modtime = 1392539322.980666000
