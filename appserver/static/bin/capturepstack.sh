@@ -17,7 +17,7 @@ echo "USAGE:
 capturepstack <PID> (-f <OUTPUT-FILENAME>)?  (-s <#SAMPLES>)? (-t <TIMEOUT-SECONDS>)? (-c <COMPRESS-0|1>)?
 
 defaults:
-OUTPUT-FILENAME: [String] Name of the pstack file. For. e.g. filename=nike will generate nike.$i.$pid.$ts.pstack. This can be a path as well. For e.g. /tmp/nike and all of these files will be stored as /tmp/nike.$i.$pid.$ts.pstack. Default is $filename
+OUTPUT-FILENAME: [String] Name of the pstack file. For. e.g. filename=foo will generate foo.$i.$pid.$ts.pstack. This can be a path as well. For e.g. filename=/tmp/foo and all of these files will be stored as /tmp/foo.$i.$pid.$ts.pstack. Default is $filename
 SAMPLES: [Int] Count of samples needed to be captured. Default is $samples
 TIMEOUT-SECONDS: [Int] Time in seconds the script will sleep between collecting pstack samples. 0 means continuous samples. Default is $timeoutsec
 COMPRESS: [0|1] When set to 1 (True), the pstack samples will be compressed into a single pstack tar.gz file and samples will be deleted. Default is $compress
