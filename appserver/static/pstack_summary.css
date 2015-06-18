@@ -11,3 +11,22 @@ div#field4 {
 div#detail table td {
 	white-space: pre;
 }
+div#pstackpath{
+  width: 850px;
+}
+div#pstackpath label{
+  width: 500px;
+}
+div#pstackpath input{
+  width: 800px;
+}
+div#pstackseparator,
+div#pstackfileindex,
+div#pstacktimeindex{
+  width: 80px;
+}
+div#pstackseparator input,
+div#pstackfileindex input,
+div#pstacktimeindex input{
+  width: 50px;
+}

@@ -9,18 +9,18 @@
   </search>
 
   <fieldset autoRun="false"> 
-    <input type="text" token="pstackpath" searchWhenChanged="true" >
-      <label>Enter absolute path to pstack folder/files</label>
+    <input id="pstackpath" type="text" token="pstackpath" searchWhenChanged="true" >
+      <label>Enter absolute path to pstack folder/files ($SPLUNK_HOME/etc/apps/pstack/sample_data/pstack.*.*.out)</label>
     </input>
-    <input type="text" token="separator" searchWhenChanged="true" >
+    <input id="pstackseparator" type="text" token="separator" searchWhenChanged="true" >
       <default>.</default>
       <label>Separator (default '.')</label>
     </input>
-    <input type="text" token="fileorderindex" searchWhenChanged="true" value="1">
+    <input id="pstackfileindex" type="text" token="fileorderindex" searchWhenChanged="true" value="1">
       <label>File index (default 1)</label>
       <default>1</default>
     </input>
-    <input type="text" token="timeorderindex" searchWhenChanged="true" value="2">
+    <input id="pstacktimeindex" type="text" token="timeorderindex" searchWhenChanged="true" value="2">
       <label>Time index (default 2)</label>
       <default>2</default>
     </input>
