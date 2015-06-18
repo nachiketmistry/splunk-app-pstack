@@ -1,9 +1,13 @@
 <form stylesheet="pstack_summary.css" script="pstack_summary.js">
   <label>pStack Summary</label>
   <description>
-  The app ships with sample pstack data stored under sample_data directory. To give this app a spin using the sample data enter absolute path as $SPLUNK_HOME/etc/apps/pstack/sample_data/apps-8809.*.out where $SPLUNK_HOME is the path where Splunk is installed.
+  The app ships with sample pstack data stored under sample_data directory. To give this app a spin using the sample data enter absolute path as $SPLUNK_HOME/etc/apps/pstack/sample_data/pstack.*.*.out where $SPLUNK_HOME is the path where Splunk is installed.
   </description>
-  <searchTemplate>|parsepstacks $pstackpath$ separator=$separator$ fileorderindex=$fileorderindex$</searchTemplate>
+  
+  <search id="parsepstacks">
+    <query>|parsepstacks $pstackpath$ separator=$separator$ fileorderindex=$fileorderindex$ timeorderindex=$timeorderindex$</query>
+  </search>
+
   <fieldset autoRun="false"> 
     <input type="text" token="pstackpath" searchWhenChanged="true" >
       <label>Enter absolute path to pstack folder/files</label>
@@ -16,54 +20,150 @@
       <label>File index (default 1)</label>
       <default>1</default>
     </input>
-    <input type="text" token="threadid" searchWhenChanged="true" />
+    <input type="text" token="timeorderindex" searchWhenChanged="true" value="2">
+      <label>Time index (default 2)</label>
+      <default>2</default>
+    </input>
   </fieldset>
+  
   <row>
-    <chart>
-      <title>Thread activity</title>
-      <searchPostProcess>stats dc(threadid) as threads by fileorder | sort  num(fileorder) num(threads)</searchPostProcess>
-      <option name="charting.axisTitleX.visibility">visible</option>
-      <option name="charting.axisTitleY.visibility">visible</option>
-      <option name="charting.axisX.scale">linear</option>
-      <option name="charting.axisY.scale">linear</option>
-      <option name="charting.chart">line</option>
-      <option name="charting.chart.nullValueMode">gaps</option>
-      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
-      <option name="charting.chart.stackMode">default</option>
-      <option name="charting.chart.style">shiny</option>
-      <option name="charting.drilldown">all</option>
-      <option name="charting.layout.splitSeries">0</option>
-      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
-      <option name="charting.legend.placement">right</option>
-      <option name="charting.axisLabelsY.majorUnit">1</option>
-    </chart>
+    <panel>
+      <title>Frequency of samples</title>
+      <chart>
+        <search base="parsepstacks">
+          <query>timechart span=1s max(threadno) as threads</query>
+        </search>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.chart">column</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.axisLabelsY.majorUnit">1</option>
+      </chart>
+  </panel>
   </row>
   <row>
-    <chart id="master">
-      <title >Frame activity by thread</title>
-      <searchPostProcess> | stats max(frameno) as frames by threadid, fileorder |  xyseries fileorder, threadid, frames | sort num(threadid) num(fileorder) num(frames)</searchPostProcess>
-      <option name="charting.axisTitleX.visibility">visible</option>
-      <option name="charting.axisTitleY.visibility">visible</option>
-      <option name="charting.axisX.scale">linear</option>
-      <option name="charting.axisY.scale">linear</option>
-      <option name="charting.chart">line</option>
-      <option name="charting.chart.nullValueMode">zero</option>
-      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
-      <option name="charting.chart.stackMode">default</option>
-      <option name="charting.chart.style">shiny</option>
-      <option name="charting.drilldown">all</option>
-      <option name="charting.layout.splitSeries">0</option>
-      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
-      <option name="charting.legend.placement">right</option>
-      <option name="charting.axisLabelsY.majorUnit">1</option>
-    </chart>
+    <panel>
+      <title>Distribution of threads over samples</title>
+      <chart>
+        <search base="parsepstacks">
+          <query>stats dc(threadid) as threads by fileorder | sort  num(fileorder) num(threads)</query>
+        </search>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.chart">line</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.axisLabelsY.majorUnit">1</option>
+      </chart>
+  </panel>
   </row>
   <row>
-    <table id="detail">
-      <title>Thread $threadid|s$ $pstackpath|s$ separator=$separator$ fileorderindex=$fileorderindex$ threadid=$threadid$ activity</title>
+    <panel>
+      <title >Frame depth of threads over samples</title>
+
+      <input type="dropdown" token="count">
+        <label>Count</label>
+        <choice value="10">10</choice>
+        <choice value="20">20</choice>
+        <choice value="30">30</choice>
+        <choice value="40">40</choice>
+        <default>10</default>
+      </input>
+      <input type="text" token="offset" searchWhenChanged="true">
+        <label>Page</label>
+        <default>1</default>
+      </input>
+      <input type="text" token="threadid" searchWhenChanged="true">
+        <label>Comma separated LWP (no spaces)</label>
+      </input>
+      <single>
+        <search base="parsepstacks">
+          <query>| head 1 | eval start=($offset$-1)*$count$ | table start</query>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="beforeLabel">Displaying</option>
+        <option name="afterLabel">to</option>
+      </single>
+      <single>
+        <search base="parsepstacks">
+          <query>| head 1 | eval end=(($offset$-1)*$count$+$count$-1)| table end</query>
+        </search>
+        <option name="drilldown">none</option>
+      </single>
+      <single>
+        <search base="parsepstacks">
+          <query>| stats dc(threadid)</query>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="underLabel">Total thread</option>
+      </single>
+
+      <chart id="master">
+        
+        <search base="parsepstacks">
+          <query>| stats max(frameno) as frames by threadid, fileorder |  xyseries fileorder, threadid, frames | sort num(threadid) num(fileorder) num(frames) | paginate $count|s$ $offset|s$</query>
+        </search>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.chart">line</option>
+        <option name="charting.chart.nullValueMode">zero</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.axisLabelsY.majorUnit">1</option>
+      </chart>
+    </panel>
+  </row>
+  <row depends="$threadid$">
+    <panel id="detail">
+    <chart depends="$threadid$">
+      <title>Frame depth of $threadid|s$ LWP</title>
+        <search base="parsepstacks">
+          <query>| stats max(frameno) as frames by threadid, fileorder | where [| stats count | fields - count | eval threadid=$threadid|s$ | makemv delim="," threadid | format] |  xyseries fileorder, threadid, frames | sort num(threadid) num(fileorder) num(frames) </query>
+        </search>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.chart">line</option>
+        <option name="charting.chart.nullValueMode">zero</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.axisLabelsY.majorUnit">1</option>
+      </chart>
+    <table depends="$threadid$">
+      <title>Stack traces of $threadid|s$ LWP over time</title>
       <searchString>
-| rawpstack $pstackpath|s$ separator=$separator$ fileorderindex=$fileorderindex$ threadid=$threadid$ reverse=true
-| table fileorder, stack
+| rawpstack $pstackpath|s$ separator=$separator$ fileorderindex=$fileorderindex$ threadid=$threadid|s$ reverse=true
+| table _time, fileorder, *
 | sort num(fileorder)</searchString>
       <option name="wrap">true</option>
       <option name="rowNumbers">false</option>
@@ -71,5 +171,6 @@
       <option name="drilldown">cell</option>
       <option name="count">50</option>
     </table>
+  </panel>
   </row>
 </form>
