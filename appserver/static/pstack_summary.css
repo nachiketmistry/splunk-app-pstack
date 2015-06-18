@@ -10,6 +10,9 @@ div#field4 {
 }
 div#detail table td {
 	white-space: pre;
+  max-width: 350px;
+  overflow: scroll;
+}
 }
 div#pstackpath{
   width: 850px;
