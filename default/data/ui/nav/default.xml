@@ -1,4 +1,4 @@
-<nav search_view="search" color="#65A637">
+<nav search_view="search" color="#FF6A00">
   <view name="pstack_summary"  default='true' />
   <view name="pstack_script" />
   <view name="search"/>
