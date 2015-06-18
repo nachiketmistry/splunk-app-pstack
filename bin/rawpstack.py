@@ -7,12 +7,13 @@ logger = getLogger()
 DEFAULT_SEPARATOR = '.'
 DEFAULT_FOI = 1
 DEFAULT_REVERSE = False
-DEFAULT_THREADID = 0
+DEFAULT_THREADID = ""
+DEFAULT_TSI = 2
 
 messages = {}
-fields = ['file', 'fileorder', 'threadno', 'threadaddr', 'threadid', 'stack']
+fields = ['_time','file', 'fileorder', 'threadno', 'threadaddr', 'threadid', 'stack']
 
-def parse_raw_pstack(pstack_file, selected_thread_id=DEFAULT_THREADID, reverse=DEFAULT_REVERSE, separator=DEFAULT_SEPARATOR, fileorderindex=DEFAULT_FOI):
+def parse_raw_pstack(pstack_file, selected_thread_id=DEFAULT_THREADID, reverse=DEFAULT_REVERSE, separator=DEFAULT_SEPARATOR, fileorderindex=DEFAULT_FOI, tsindex=DEFAULT_TSI):
     global messages
 
     output = []
@@ -33,12 +34,21 @@ def parse_raw_pstack(pstack_file, selected_thread_id=DEFAULT_THREADID, reverse=D
     fileorder = None
     filename = os.path.basename(pstack_file)
     fileorder = filename.split(separator)[fileorderindex]
+    fts = filename.split(separator)[tsindex] if len(filename.split(separator)) > tsindex else 0
+    fts = fts if fts.find('.') == -1 else fts.split('.')[0]
     thread_no = -1
     thread_addr = -1
     thread_id = 0
     stack = []
 
+    selected_thread_id = selected_thread_id.strip('"\' ').split(',')
+
     fp = open(pstack_file)
+    row = {
+        '_time': fts,
+        'fileorder': int(fileorder)
+    }
+
     for line in fp:
         linecount += 1
 
@@ -53,16 +63,9 @@ def parse_raw_pstack(pstack_file, selected_thread_id=DEFAULT_THREADID, reverse=D
                     logger.debug("reversing stack")
                     stack = reversed(stack);
 
-                row = {
-                    'file': filename,
-                    'fileorder': int(fileorder),
-                    'threadno': int(thread_no),
-                    'threadaddr': thread_addr,
-                    'threadid': thread_id,
-                    'stack': '\n'.join(stack)
-                }
+                row[thread_id] = '\n'.join(stack)
+                    
                 logger.debug("appending row")
-                output.append(row)
 
             thread_raw = line
             ig, thread_no, ig, thread_addr, ig, thread_id = line.split()
@@ -72,7 +75,7 @@ def parse_raw_pstack(pstack_file, selected_thread_id=DEFAULT_THREADID, reverse=D
             stack = []
             continue
 
-        if selected_thread_id != 0 and thread_id != selected_thread_id:
+        if thread_id not in selected_thread_id:
             logger.debug("skipping sti=%s threadid=%s" % (selected_thread_id, thread_id))
             continue
 
@@ -85,6 +88,18 @@ def parse_raw_pstack(pstack_file, selected_thread_id=DEFAULT_THREADID, reverse=D
             logger.warn("Unable to parse line #%d in %s file. '%s'" % (linecount, pstack_file, line)   )
             continue
 
+    if stack:
+        logger.debug("there is stack")
+
+        if reverse in ('true', 'True', 1):
+            logger.debug("reversing stack")
+            stack = reversed(stack);
+
+        row[thread_id] = '\n'.join(stack)
+            
+        logger.debug("appending row")
+
+    output.append(row)
     fp.close()
 
     return output
@@ -98,6 +113,7 @@ def raw_pstack():
     fileorderindex = int(options.get('fileorderindex', DEFAULT_FOI))
     thread_id = options.get('threadid', DEFAULT_THREADID)
     reverse = options.get('reverse', DEFAULT_REVERSE)
+    timeorderindex = int(options.get('timeorderindex', DEFAULT_TSI))
 
 
     if len(keywords)==0:
@@ -124,7 +140,7 @@ def raw_pstack():
 
     for pfile in glob_matches:
         logger.error("parsing file: %s" % pfile)
-        results += parse_raw_pstack(pfile, thread_id, reverse, separator, fileorderindex)
+        results += parse_raw_pstack(pfile, thread_id, reverse, separator, fileorderindex, timeorderindex)
 
 
     #return results
@@ -133,7 +149,7 @@ def raw_pstack():
 # noinspection PyUnreachableCode
 if __name__ == '__main__':
     try:
-        si.outputResults(raw_pstack(), messages, fields)
+        si.outputResults(raw_pstack(), messages)
     except Exception, e:
         import traceback
         stack = traceback.format_exc()

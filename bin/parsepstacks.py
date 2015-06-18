@@ -6,11 +6,18 @@ logger = getLogger()
 
 DEFAULT_SEPARATOR = '.'
 DEFAULT_FOI = 1
+DEFAULT_TSI = 2
 
 messages = {}
-fields = ['file', 'fileorder', 'threadno', 'threadaddr', 'threadid', 'frameno', 'frameaddr', 'function', 'extra', '_raw']
+fields = ['file', 'fileorder', '_time', 'threadno', 'threadaddr', 'threadid', 'frameno', 'frameaddr', 'function', 'extra', '_raw']
 
-def parse_pstack_file(pstack_file, separator=DEFAULT_SEPARATOR, fileorderindex=DEFAULT_FOI):
+def usage():
+    utext = '''
+$SPLUNK_HOME/bin/python $SPLUNK_HOME/etc/apps/pstack/bin/parsepstacks.py $SPLUNK_HOME/etc/apps/pstack/sample_data/apps-8089.1.out separator=<CHAR>, fileorderindex=<INT>, tsindex=<INT>
+    '''
+    print utext
+
+def parse_pstack_file(pstack_file, separator=DEFAULT_SEPARATOR, fileorderindex=DEFAULT_FOI, tsindex=DEFAULT_TSI):
     global messages
 
     output = []
@@ -31,6 +38,10 @@ def parse_pstack_file(pstack_file, separator=DEFAULT_SEPARATOR, fileorderindex=D
     fileorder = None
     filename = os.path.basename(pstack_file)
     fileorder = filename.split(separator)[fileorderindex]
+    fts = filename.split(separator)[tsindex] if len(filename.split(separator)) > tsindex else 0
+    fts = fts if fts.find('.') == -1 else fts.split('.')[0]
+    logger.debug("fts = %s" % fts)
+
     threadno = -1
     thread_addr = -1
     thread_id = 0
@@ -58,6 +69,7 @@ def parse_pstack_file(pstack_file, separator=DEFAULT_SEPARATOR, fileorderindex=D
         row = {
             'file': filename,
             'fileorder': int(fileorder),
+            '_time': fts,
             'threadno': int(thread_no),
             'threadaddr': thread_addr,
             'threadid': thread_id,
@@ -82,8 +94,7 @@ def parse_pstacks():
 
     separator = options.get('separator', DEFAULT_SEPARATOR)
     fileorderindex = int(options.get('fileorderindex', DEFAULT_FOI))
-
-
+    timeorderindex = int(options.get('timeorderindex', DEFAULT_TSI))
 
     if len(keywords)==0:
         raise Exception("requires path to pstack file(s)")
@@ -106,7 +117,7 @@ def parse_pstacks():
 
     for pfile in glob_matches:
         logger.error("parsing file: %s" % pfile)
-        results += parse_pstack_file(pfile, separator, fileorderindex)
+        results += parse_pstack_file(pfile, separator, fileorderindex, timeorderindex)
 
 
     #return results
@@ -121,3 +132,4 @@ if __name__ == '__main__':
         stack = traceback.format_exc()
         si.generateErrorResults("Following error occurred while parsing pstack: '%s'." % (e))
         logger.error("%s. %s" % (e, stack))
+        usage()
