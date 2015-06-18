@@ -1,0 +1,382 @@
+Thread 44 (Thread 0x2b982d600940 (LWP 1120)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x0000000000d8eee8 in ProcessRunnerThread::main() ()
+#3  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#4  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#5  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 43 (Thread 0x2b982de00940 (LWP 1121)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0aee3 in PersistentQueue::remove(CowPipelineData&, ConditionWaitTimeout const&) ()
+#3  0x0000000000a31b56 in QueueServiceThread::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 42 (Thread 0x2b982e600940 (LWP 1122)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x000000000065daf2 in HTTPDispatchThread::main() ()
+#3  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#4  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#5  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 41 (Thread 0x2b982ea74940 (LWP 1127)):
+#0  0x00000039d2c0b019 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfed9 in PthreadCondition::wait(ConditionMutex&) ()
+#2  0x0000000000ae0137 in CallbackRunnerThread::main() ()
+#3  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#4  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#5  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 40 (Thread 0x2b982ec75940 (LWP 1128)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x0000000000b346ee in ShutdownThread::main() ()
+#3  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#4  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#5  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 39 (Thread 0x2b9830200940 (LWP 1130)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#3  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#4  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 38 (Thread 0x2b9830a00940 (LWP 1131)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x0000000000f0e9fb in DispatchReaper::main() ()
+#3  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#4  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#5  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 37 (Thread 0x2b9831401940 (LWP 1133)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0ad34 in PersistentQueue::remove(PipelineDataQueue&, unsigned int, unsigned long, ConditionWaitTimeout const&) ()
+#3  0x00000000006b6684 in QueueInputProcessor::createPipelineData(CowPipelineData&) ()
+#4  0x0000000000ade595 in Pipeline::main() ()
+#5  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#6  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#7  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 36 (Thread 0x2b982fa00940 (LWP 1134)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#3  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#4  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 35 (Thread 0x2b9832600940 (LWP 1135)):
+#0  0x00000039d2c0b019 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfed9 in PthreadCondition::wait(ConditionMutex&) ()
+#2  0x0000000000b84413 in JobQ::pop() ()
+#3  0x0000000000b85f14 in Worker::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 34 (Thread 0x2b9832e00940 (LWP 1136)):
+#0  0x00000039d2c0b019 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfed9 in PthreadCondition::wait(ConditionMutex&) ()
+#2  0x0000000000b84413 in JobQ::pop() ()
+#3  0x0000000000b85f14 in Worker::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 33 (Thread 0x2b9833001940 (LWP 1137)):
+#0  0x00000039d2c0b019 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfed9 in PthreadCondition::wait(ConditionMutex&) ()
+#2  0x0000000000b84413 in JobQ::pop() ()
+#3  0x0000000000b85f14 in Worker::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 32 (Thread 0x2b9833202940 (LWP 1138)):
+#0  0x00000039d2c0b019 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfed9 in PthreadCondition::wait(ConditionMutex&) ()
+#2  0x0000000000b84413 in JobQ::pop() ()
+#3  0x0000000000b85f14 in Worker::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 31 (Thread 0x2b9833803940 (LWP 1139)):
+#0  0x00000039d2c0b019 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfed9 in PthreadCondition::wait(ConditionMutex&) ()
+#2  0x0000000000b84413 in JobQ::pop() ()
+#3  0x0000000000b85f14 in Worker::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 30 (Thread 0x2b9834a02940 (LWP 1140)):
+#0  0x00000039d2c0b019 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfed9 in PthreadCondition::wait(ConditionMutex&) ()
+#2  0x0000000000b84413 in JobQ::pop() ()
+#3  0x0000000000b85f14 in Worker::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 29 (Thread 0x2b9835c01940 (LWP 1141)):
+#0  0x00000039d2c0b019 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfed9 in PthreadCondition::wait(ConditionMutex&) ()
+#2  0x0000000000b84413 in JobQ::pop() ()
+#3  0x0000000000b85f14 in Worker::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 28 (Thread 0x2b9835a00940 (LWP 1142)):
+#0  0x00000039d2c0b019 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfed9 in PthreadCondition::wait(ConditionMutex&) ()
+#2  0x0000000000b84413 in JobQ::pop() ()
+#3  0x0000000000b85f14 in Worker::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 27 (Thread 0x2b9837a00940 (LWP 1143)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0ad34 in PersistentQueue::remove(PipelineDataQueue&, unsigned int, unsigned long, ConditionWaitTimeout const&) ()
+#3  0x00000000006b6684 in QueueInputProcessor::createPipelineData(CowPipelineData&) ()
+#4  0x0000000000ade595 in Pipeline::main() ()
+#5  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#6  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#7  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 26 (Thread 0x2b9838200940 (LWP 1144)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0aee3 in PersistentQueue::remove(CowPipelineData&, ConditionWaitTimeout const&) ()
+#3  0x00000000006b036e in FifoInputProcessor::createInputPipelineData(CowPipelineData&) ()
+#4  0x0000000000b0638a in InputProcessor::createPipelineData(CowPipelineData&) ()
+#5  0x0000000000ade595 in Pipeline::main() ()
+#6  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#7  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#8  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 25 (Thread 0x2b9838a00940 (LWP 1145)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x00000000006b0309 in FifoInputProcessor::main() ()
+#3  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#4  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#5  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 24 (Thread 0x2b9839200940 (LWP 1146)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0aee3 in PersistentQueue::remove(CowPipelineData&, ConditionWaitTimeout const&) ()
+#3  0x00000000006cbd58 in FwdDataReceiverThread::createInputPipelineData(CowPipelineData&) ()
+#4  0x00000000006cc22d in TcpInputProcessor::createInputPipelineData(CowPipelineData&) ()
+#5  0x0000000000b0638a in InputProcessor::createPipelineData(CowPipelineData&) ()
+#6  0x0000000000ade595 in Pipeline::main() ()
+#7  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#8  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#9  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 23 (Thread 0x2b9839a00940 (LWP 1147)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#3  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#4  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 22 (Thread 0x2b9839c01940 (LWP 1148)):
+#0  0x00000039d2c0b019 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfed9 in PthreadCondition::wait(ConditionMutex&) ()
+#2  0x0000000000dc0db9 in Thread::wait_for_go() ()
+#3  0x0000000000dc0e28 in Thread::callMain(void*) ()
+#4  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#5  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 21 (Thread 0x2b9839e02940 (LWP 1149)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0aee3 in PersistentQueue::remove(CowPipelineData&, ConditionWaitTimeout const&) ()
+#3  0x00000000006c7d87 in PQReaderThread::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 20 (Thread 0x2b983aa00940 (LWP 1150)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0aee3 in PersistentQueue::remove(CowPipelineData&, ConditionWaitTimeout const&) ()
+#3  0x00000000006b8097 in UDPInputProcessor::createInputPipelineData(CowPipelineData&) ()
+#4  0x0000000000b0638a in InputProcessor::createPipelineData(CowPipelineData&) ()
+#5  0x0000000000ade595 in Pipeline::main() ()
+#6  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#7  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#8  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 19 (Thread 0x2b983b200940 (LWP 1151)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x00000000006bdbb8 in UDPInputProcessor::main() ()
+#3  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#4  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#5  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 18 (Thread 0x2b983ba00940 (LWP 1152)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0aee3 in PersistentQueue::remove(CowPipelineData&, ConditionWaitTimeout const&) ()
+#3  0x00000000006a03ee in ExecProcessor::createInputPipelineData(CowPipelineData&) ()
+#4  0x0000000000b0638a in InputProcessor::createPipelineData(CowPipelineData&) ()
+#5  0x0000000000ade595 in Pipeline::main() ()
+#6  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#7  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#8  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 17 (Thread 0x2b983c200940 (LWP 1153)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x00000000006a68e1 in ExecProcessor::main() ()
+#3  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#4  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#5  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 16 (Thread 0x2b983ca00940 (LWP 1452)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0aee3 in PersistentQueue::remove(CowPipelineData&, ConditionWaitTimeout const&) ()
+#3  0x00000000006c403c in FSChangeManagerProcessor::createInputPipelineData(CowPipelineData&) ()
+#4  0x0000000000b0638a in InputProcessor::createPipelineData(CowPipelineData&) ()
+#5  0x0000000000ade595 in Pipeline::main() ()
+#6  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#7  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#8  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 15 (Thread 0x2b983da01940 (LWP 1454)):
+#0  0x00000039d249a201 in nanosleep () from /lib64/libc.so.6
+#1  0x00000039d249a024 in sleep () from /lib64/libc.so.6
+#2  0x0000000000a61fa0 in FSUpdaterThread::main() ()
+#3  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#4  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#5  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 14 (Thread 0x2b983f200940 (LWP 1455)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0ad34 in PersistentQueue::remove(PipelineDataQueue&, unsigned int, unsigned long, ConditionWaitTimeout const&) ()
+#3  0x00000000006b6684 in QueueInputProcessor::createPipelineData(CowPipelineData&) ()
+#4  0x0000000000ade595 in Pipeline::main() ()
+#5  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#6  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#7  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 13 (Thread 0x2b983fa00940 (LWP 1457)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0aee3 in PersistentQueue::remove(CowPipelineData&, ConditionWaitTimeout const&) ()
+#3  0x0000000000699759 in ArchiveProcessor::createInputPipelineData(CowPipelineData&) ()
+#4  0x0000000000b0638a in InputProcessor::createPipelineData(CowPipelineData&) ()
+#5  0x0000000000ade595 in Pipeline::main() ()
+#6  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#7  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#8  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 12 (Thread 0x2b9840200940 (LWP 1458)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0aee3 in PersistentQueue::remove(CowPipelineData&, ConditionWaitTimeout const&) ()
+#3  0x000000000069c01d in ArchiveProcessor::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 11 (Thread 0x2b9841600940 (LWP 1629)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x00000000009b1443 in SavedSplunker::main() ()
+#3  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#4  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#5  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 10 (Thread 0x2b9842200940 (LWP 1630)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0ad34 in PersistentQueue::remove(PipelineDataQueue&, unsigned int, unsigned long, ConditionWaitTimeout const&) ()
+#3  0x00000000006b6684 in QueueInputProcessor::createPipelineData(CowPipelineData&) ()
+#4  0x0000000000ade595 in Pipeline::main() ()
+#5  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#6  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#7  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 9 (Thread 0x2b9842a00940 (LWP 1633)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0ad34 in PersistentQueue::remove(PipelineDataQueue&, unsigned int, unsigned long, ConditionWaitTimeout const&) ()
+#3  0x00000000006b6684 in QueueInputProcessor::createPipelineData(CowPipelineData&) ()
+#4  0x0000000000ade595 in Pipeline::main() ()
+#5  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#6  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#7  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 8 (Thread 0x2b9843200940 (LWP 1651)):
+#0  0x00000039d2c0b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfe60 in PthreadCondition::wait(ConditionMutex&, ConditionWaitTimeout const&) ()
+#2  0x0000000000b0ad34 in PersistentQueue::remove(PipelineDataQueue&, unsigned int, unsigned long, ConditionWaitTimeout const&) ()
+#3  0x00000000006b6684 in QueueInputProcessor::createPipelineData(CowPipelineData&) ()
+#4  0x0000000000ade595 in Pipeline::main() ()
+#5  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#6  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#7  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 7 (Thread 0x2b9844a00940 (LWP 1653)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x000000000071b15f in TailWatcher::run() ()
+#3  0x000000000071b2bb in TailingThread::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 6 (Thread 0x2b9845200940 (LWP 1654)):
+#0  0x00000039d2c0b019 in pthread_cond_wait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x0000000000dbfed9 in PthreadCondition::wait(ConditionMutex&) ()
+#2  0x0000000000b84413 in JobQ::pop() ()
+#3  0x0000000000b85f14 in Worker::main() ()
+#4  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#5  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 5 (Thread 0x2b985000b940 (LWP 2232)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#3  0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#4  0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 4 (Thread 0x2b9835e02940 (LWP 23424)):
+#0  0x00000000009c481c in SavedSplunk::SavedSplunk(SavedSplunk const&) ()
+#1  0x00000000010ea8aa in NewSavedSearchManager::getSearches(SavedSearchSelector const&, Str const&, std::vector<SavedSplunk, std::allocator<SavedSplunk> >&, bool (*)(SavedSplunk&), PropertyPages::GetModes const&) ()
+#2  0x00000000010eaaa7 in NewSavedSearchManager::getSavedSearches(SavedSearchSelector const&, std::vector<SavedSplunk, std::allocator<SavedSplunk> >&, bool (*)(SavedSplunk&), PropertyPages::GetModes const&) ()
+#3  0x0000000001107ad4 in SummarizationHandler::handleList(ConfigInfo&) ()
+#4  0x0000000000a16adb in MConfigHandler::go(ConfigInfo&) ()
+#5  0x0000000000a174ae in AdminManagerRESTHandler::handleRequestNS(AdminHandlerRequest const&, ConfigInfo&, AdminHandlerResult&) ()
+#6  0x0000000000a19915 in AdminManagerRESTHandler::handleRequestNS(MRestHandlerArg const&) ()
+#7  0x0000000000a97e1f in HTTPRestDispatcher::handleRequest(FdConnectionData const&, HTTPRequest const*) ()
+#8  0x0000000000a7e0a7 in HTTPRequestHandlerThread::main() ()
+#9  0x0000000000dc0e42 in Thread::callMain(void*) ()
+#10 0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#11 0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 3 (Thread 0x2b9876200940 (LWP 23425)):
+#0  0x00000000013133e3 in __gnu_cxx::__atomic_add(int volatile*, int) ()
+#1  0x0000000001310bf6 in std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) ()
+#2  0x0000000000665bcd in std::_Rb_tree<PropertyName, std::pair<PropertyName const, Property>, std::_Select1st<std::pair<PropertyName const, Property> >, std::less<PropertyName>, std::allocator<std::pair<PropertyName const, Property> > >::_M_copy(std::_Rb_tree_node<std::pair<PropertyName const, Property> > const*, std::_Rb_tree_node<std::pair<PropertyName const, Property> >*) ()
+#3  0x0000000000770cf9 in std::_Rb_tree<PropertyName, std::pair<PropertyName const, Property>, std::_Select1st<std::pair<PropertyName const, Property> >, std::less<PropertyName>, std::allocator<std::pair<PropertyName const, Property> > >::operator=(std::_Rb_tree<PropertyName, std::pair<PropertyName const, Property>, std::_Select1st<std::pair<PropertyName const, Property> >, std::less<PropertyName>, std::allocator<std::pair<PropertyName const, Property> > > const&) ()
+#4  0x00000000009c432b in SavedSplunk::operator=(SavedSplunk const&) ()
+#5  0x00000000009c679a in __gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > > std::__unguarded_partition<__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, SavedSplunk, bool (*)(SavedSplunk const&, SavedSplunk const&)>(__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, __gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, SavedSplunk, bool (*)(SavedSplunk const&, SavedSplunk const&)) ()
+#6  0x00000000009c68b7 in void std::__introsort_loop<__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)>(__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, __gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)) ()
+#7  0x00000000009c68d6 in void std::__introsort_loop<__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)>(__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, __gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)) ()
+#8  0x00000000009c68d6 in void std::__introsort_loop<__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)>(__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, __gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)) ()
+#9  0x00000000009c68d6 in void std::__introsort_loop<__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)>(__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, __gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)) ()
+#10 0x00000000009c68d6 in void std::__introsort_loop<__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)>(__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, __gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)) ()
+#11 0x00000000009c68d6 in void std::__introsort_loop<__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)>(__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, __gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, long, bool (*)(SavedSplunk const&, SavedSplunk const&)) ()
+#12 0x0000000001107b25 in SummarizationHandler::handleList(ConfigInfo&) ()
+#13 0x0000000000a16adb in MConfigHandler::go(ConfigInfo&) ()
+#14 0x0000000000a174ae in AdminManagerRESTHandler::handleRequestNS(AdminHandlerRequest const&, ConfigInfo&, AdminHandlerResult&) ()
+#15 0x0000000000a19915 in AdminManagerRESTHandler::handleRequestNS(MRestHandlerArg const&) ()
+#16 0x0000000000a97e1f in HTTPRestDispatcher::handleRequest(FdConnectionData const&, HTTPRequest const*) ()
+#17 0x0000000000a7e0a7 in HTTPRequestHandlerThread::main() ()
+#18 0x0000000000dc0e42 in Thread::callMain(void*) ()
+#19 0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#20 0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 2 (Thread 0x2b983d602940 (LWP 23426)):
+#0  0x0000000001310b9c in std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) ()
+#1  0x0000000000665a86 in std::_Rb_tree<PropertyName, std::pair<PropertyName const, Property>, std::_Select1st<std::pair<PropertyName const, Property> >, std::less<PropertyName>, std::allocator<std::pair<PropertyName const, Property> > >::_M_copy(std::_Rb_tree_node<std::pair<PropertyName const, Property> > const*, std::_Rb_tree_node<std::pair<PropertyName const, Property> >*) ()
+#2  0x0000000000665ccf in std::_Rb_tree<PropertyName, std::pair<PropertyName const, Property>, std::_Select1st<std::pair<PropertyName const, Property> >, std::less<PropertyName>, std::allocator<std::pair<PropertyName const, Property> > >::_M_copy(std::_Rb_tree_node<std::pair<PropertyName const, Property> > const*, std::_Rb_tree_node<std::pair<PropertyName const, Property> >*) ()
+#3  0x0000000000665ccf in std::_Rb_tree<PropertyName, std::pair<PropertyName const, Property>, std::_Select1st<std::pair<PropertyName const, Property> >, std::less<PropertyName>, std::allocator<std::pair<PropertyName const, Property> > >::_M_copy(std::_Rb_tree_node<std::pair<PropertyName const, Property> > const*, std::_Rb_tree_node<std::pair<PropertyName const, Property> >*) ()
+#4  0x0000000000665ccf in std::_Rb_tree<PropertyName, std::pair<PropertyName const, Property>, std::_Select1st<std::pair<PropertyName const, Property> >, std::less<PropertyName>, std::allocator<std::pair<PropertyName const, Property> > >::_M_copy(std::_Rb_tree_node<std::pair<PropertyName const, Property> > const*, std::_Rb_tree_node<std::pair<PropertyName const, Property> >*) ()
+#5  0x0000000000665ccf in std::_Rb_tree<PropertyName, std::pair<PropertyName const, Property>, std::_Select1st<std::pair<PropertyName const, Property> >, std::less<PropertyName>, std::allocator<std::pair<PropertyName const, Property> > >::_M_copy(std::_Rb_tree_node<std::pair<PropertyName const, Property> > const*, std::_Rb_tree_node<std::pair<PropertyName const, Property> >*) ()
+#6  0x0000000000665ccf in std::_Rb_tree<PropertyName, std::pair<PropertyName const, Property>, std::_Select1st<std::pair<PropertyName const, Property> >, std::less<PropertyName>, std::allocator<std::pair<PropertyName const, Property> > >::_M_copy(std::_Rb_tree_node<std::pair<PropertyName const, Property> > const*, std::_Rb_tree_node<std::pair<PropertyName const, Property> >*) ()
+#7  0x0000000000665ccf in std::_Rb_tree<PropertyName, std::pair<PropertyName const, Property>, std::_Select1st<std::pair<PropertyName const, Property> >, std::less<PropertyName>, std::allocator<std::pair<PropertyName const, Property> > >::_M_copy(std::_Rb_tree_node<std::pair<PropertyName const, Property> > const*, std::_Rb_tree_node<std::pair<PropertyName const, Property> >*) ()
+#8  0x00000000009c4906 in SavedSplunk::SavedSplunk(SavedSplunk const&) ()
+#9  0x00000000009c51b3 in std::vector<SavedSplunk, std::allocator<SavedSplunk> >::_M_insert_aux(__gnu_cxx::__normal_iterator<SavedSplunk*, std::vector<SavedSplunk, std::allocator<SavedSplunk> > >, SavedSplunk const&) ()
+#10 0x00000000010ea8c3 in NewSavedSearchManager::getSearches(SavedSearchSelector const&, Str const&, std::vector<SavedSplunk, std::allocator<SavedSplunk> >&, bool (*)(SavedSplunk&), PropertyPages::GetModes const&) ()
+#11 0x00000000010eaaa7 in NewSavedSearchManager::getSavedSearches(SavedSearchSelector const&, std::vector<SavedSplunk, std::allocator<SavedSplunk> >&, bool (*)(SavedSplunk&), PropertyPages::GetModes const&) ()
+#12 0x0000000001107ad4 in SummarizationHandler::handleList(ConfigInfo&) ()
+#13 0x0000000000a16adb in MConfigHandler::go(ConfigInfo&) ()
+#14 0x0000000000a174ae in AdminManagerRESTHandler::handleRequestNS(AdminHandlerRequest const&, ConfigInfo&, AdminHandlerResult&) ()
+#15 0x0000000000a19915 in AdminManagerRESTHandler::handleRequestNS(MRestHandlerArg const&) ()
+#16 0x0000000000a97e1f in HTTPRestDispatcher::handleRequest(FdConnectionData const&, HTTPRequest const*) ()
+#17 0x0000000000a7e0a7 in HTTPRequestHandlerThread::main() ()
+#18 0x0000000000dc0e42 in Thread::callMain(void*) ()
+#19 0x00000039d2c0683d in start_thread () from /lib64/libpthread.so.0
+#20 0x00000039d24d4fcd in clone () from /lib64/libc.so.6
+Thread 1 (Thread 0x2b982c6dac20 (LWP 1118)):
+#0  0x00000039d24d19c9 in syscall () from /lib64/libc.so.6
+#1  0x0000000000d54833 in EventLoop::run() ()
+#2  0x0000000000adfc14 in MainThread::main() ()
+#3  0x0000000000661b58 in main ()
